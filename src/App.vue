@@ -3,6 +3,7 @@
     <div id="app">
       <AppHeader />  
       <TodoList />
+      <a href="https://github.com/fufu333/3.31.git" target="_blank" rel="noopener noreferrer"><button @click="goToGitHub">点击跳转到 GitHub 仓库</button></a>
     </div>
   </div>  
     
@@ -19,6 +20,12 @@ export default defineComponent ({
     AppHeader,
     TodoList  
   },
+  methods: {  
+    // 跳转github页面
+    goToGitHub() {  
+      window.location.href = 'https://github.com/fufu333/3.31.git';  
+    }  
+  }
 })  
 </script>  
   
@@ -45,7 +52,7 @@ export default defineComponent ({
     transform: translateX(-50%);  
     width: 100vw;  
     height: 100vh; 
-    background-image: url('@/assets/bj.jpg');  
+    background-image: url('./assets/bj.jpg');  
     background-size: cover;  
     background-position: center;  
     background-repeat: no-repeat;  

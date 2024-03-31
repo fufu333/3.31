@@ -17,11 +17,14 @@ export default defineComponent ({
      
     data() {  
       return {  
-        newTodo: '',  
+        // 一个空字符串，用于存储用户输入的新待办事项
+        newTodo: '', 
+        // 一个布尔值，初始值为 false，可能用于表示所有待办事项是否都已标记为完成。 
         allChecked: false  
       };  
     }, 
-    methods: {  
+    methods: { 
+      // 如果 newTodo 属性有非空字符串值（通过 trim() 方法去除首尾空格后），那么它会通过 bus.$emit 发送一个 addTodo 事件，并将 newTodo 的值和 done: false 作为事件参数。发送事件后，它会将 newTodo 属性重置为空字符串。 
       addTodo() {  
         if (this.newTodo.trim()) {  
           bus.$emit('addTodo', { text: this.newTodo, done: false }) 
@@ -30,7 +33,7 @@ export default defineComponent ({
       }
         
     },
-    
+    // 这是一个深度监听器，用于监听 todos 属性的变化。当 todos 发生变化时，它会调用 checkAll 方法（注意，checkAll 方法在提供的代码片段中并未定义，可能在组件的其他部分或者父组件中定义）。
     watch: {  
       todos: {  
         deep: true,  
