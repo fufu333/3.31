@@ -4,6 +4,7 @@
       <AppHeader />  
       <TodoList />
       <a href="https://github.com/fufu333/3.31.git" target="_blank" rel="noopener noreferrer"><button @click="goToGitHub">点击跳转到 GitHub 仓库</button></a>
+      <router-view />
     </div>
   </div>  
     
@@ -12,7 +13,8 @@
 <script>
 import { defineComponent } from 'vue'  
 import AppHeader from './components/AppHeader.vue'
-import TodoList from './components/TodoList.vue' 
+import TodoList from './components/TodoList.vue'
+import router from './router' // 引入路由配置 
   
 export default defineComponent ({  
   name: 'App',  
@@ -20,10 +22,19 @@ export default defineComponent ({
     AppHeader,
     TodoList  
   },
+  
   methods: {  
     // 跳转github页面
     goToGitHub() {  
       window.location.href = 'https://github.com/fufu333/3.31.git';  
+    }  
+  },
+  created() {  
+    this.$router = router // 挂载路由实例  
+  },  
+  data() {  
+    return {  
+      showTodoList: true // 假设的变量，用于控制TodoList的显示  
     }  
   }
 })  
