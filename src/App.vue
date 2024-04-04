@@ -8,26 +8,22 @@
       </nav>
       <router-view /> <!-- 路由出口 -->
     </div>   
-    <TodoList v-if="showTodoList" /> <!-- 假设你想根据某个条件控制TodoList的显示 -->  
+ 
   </div>  
-    
 </template>  
   
 <script>
 import { defineComponent } from 'vue'  
-import TodoList from './components/TodoList.vue'
+
 
   
 export default defineComponent ({  
   name: 'App',  
-  components: {  
-    TodoList  
-  },
   
 
   data() {  
     return {  
-      showTodoList: true // 假设的变量，用于控制TodoList的显示  
+        
     }  
   
   }
