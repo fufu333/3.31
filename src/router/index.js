@@ -1,12 +1,13 @@
-// router/index.js  
 import Vue from 'vue'  
-import VueRouter from 'vue-router'  
+import Router from 'vue-router'
+
 import HomePage from '../components/HomePage.vue'  
 import ProfilePage from '../components/ProfilePage.vue'  
   
-Vue.use(VueRouter)  
-  
-const routes = [  
+Vue.use(Router) 
+
+const routes = [
+    
   {  
     path: '/',  
     name: 'Home',  
@@ -16,10 +17,11 @@ const routes = [
     path: '/profile',  
     name: 'Profile',  
     component: ProfilePage  
-  }  
+  }
+    
 ]  
   
-const router = new VueRouter({  
+const router = new Router({  
   mode: 'hash', // 使用hash模式  
   routes  
 })  

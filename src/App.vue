@@ -1,41 +1,35 @@
 <template>
   <div class="todo-list">
-    <div id="app">
-      <AppHeader />  
-      <TodoList />
-      <a href="https://github.com/fufu333/3.31.git" target="_blank" rel="noopener noreferrer"><button @click="goToGitHub">点击跳转到 GitHub 仓库</button></a>
-      <router-view />
-    </div>
+    <div id="app" >
+      <nav class="nav-bar">
+        <router-link to="/">首页</router-link> <!-- 首页链接 -->  
+        <router-link to="/profile">个人主页</router-link> <!-- 个人主页链接 -->  
+        <a href="https://github.com/fufu333/3.31" target="_blank" class="github-button">GitHub代码仓库</a>  <!-- 修改后的GitHub链接 -->  
+      </nav>
+      <router-view /> <!-- 路由出口 -->
+    </div>   
+    <TodoList v-if="showTodoList" /> <!-- 假设你想根据某个条件控制TodoList的显示 -->  
   </div>  
     
 </template>  
   
 <script>
 import { defineComponent } from 'vue'  
-import AppHeader from './components/AppHeader.vue'
 import TodoList from './components/TodoList.vue'
-import router from './router' // 引入路由配置 
+
   
 export default defineComponent ({  
   name: 'App',  
   components: {  
-    AppHeader,
     TodoList  
   },
   
-  methods: {  
-    // 跳转github页面
-    goToGitHub() {  
-      window.location.href = 'https://github.com/fufu333/3.31.git';  
-    }  
-  },
-  created() {  
-    this.$router = router // 挂载路由实例  
-  },  
+
   data() {  
     return {  
       showTodoList: true // 假设的变量，用于控制TodoList的显示  
     }  
+  
   }
 })  
 </script>  
@@ -71,5 +65,21 @@ export default defineComponent ({
     pointer-events: none;  
   }  
   
+.nav-bar {  
+    display: flex;  
+    justify-content: center; /* 水平居中按钮 */  
+    align-items: center;  
+}  
   
+.nav-bar a {  
+    color: white;   
+    text-decoration: none;  
+    margin: 0 20px;  
+    font-size: 1.2em;  
+    transition: font-size 0.1s ease;  
+}  
+  
+.nav-bar a:hover {  
+    font-size: 1.4em; 
+} 
 </style>
